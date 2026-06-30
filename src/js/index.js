@@ -37,11 +37,11 @@ btnSearch.addEventListener('click', async () => {
       </div>
       <div class="profile-counter">
         <div class="folowers">
-           <h4>Seguidores</h4>
+           <h4>👥Seguidores</h4>
           <span>Seguidores: ${userData.followers}</span>
         </div>
         <div class="following">
-          <h4>Seguindo</h4>
+          <h4>👥Seguindo</h4>
           <span>Seguindo: ${userData.following}</span>
         </div>
       </div>
