@@ -11,14 +11,14 @@
   --card: hsl(0, 0%, 100%);
   --primary: hsl(222.2, 47.4%, 11.2%);
   --primary-foreground: hsl(210, 40%, 98%);
-  
+
   --spacing-xs: 0.5rem;
   --spacing-sm: 0.75rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
-  
+
   --font-xs: 0.75rem;
   --font-sm: 0.875rem;
   --font-md: 1rem;
@@ -26,19 +26,19 @@
   --font-xl: 1.5rem;
   --font-2xl: 1.875rem;
   --font-3xl: 2rem;
-  
+
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
+
   --transition: all 0.2s;
 }
 
 body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #fda085 100%);
   background-size: 400% 400%;
-  font-family: "Inter", "Segoe UI", sans-serif;  
-  text-align: center;    
+  font-family: "Inter", "Segoe UI", sans-serif;
+  text-align: center;
   padding-bottom: 100px;
   min-height: 100vh;
   color: var(--foreground);
@@ -46,19 +46,19 @@ body {
 }
 
 main {
-  display: flex;  
+  display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: var(--spacing-2xl) var(--spacing-md);      
+  padding: var(--spacing-2xl) var(--spacing-md);
 }
 
-.devicon-github-original{
+.devicon-github-original {
   font-size: var(--font-3xl);
   margin-bottom: var(--spacing-xl);
   color: #FFFFFF;
 }
 
-.section{
+.section {
   padding: 4rem 0;
   border-top: 1px solid var(--border);
 }
@@ -143,4 +143,94 @@ main {
 
 .container .profile-results.hide {
   display: none;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: var(--background);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.profile-card img {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.profile-card h3 {
+  margin: 0;
+  font-size: var(--font-xl);
+  font-weight: 700;
+}
+
+.profile-card p {
+  margin: 0.35rem 0 0;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+.profile-card p:first-of-type {
+  color: var(--foreground);
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-card img {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.loading .spinner {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.08);
+  border-top-color: #667eea;
+  animation: spin 1s linear infinite;
+}
+
+.loading .loading-text {
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Profile info block (text side) */
+.profile-card .profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .profile-card .profile-info {
+    align-items: center;
+  }
 }
