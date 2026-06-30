@@ -29,19 +29,26 @@ btnSearch.addEventListener('click', async () => {
       <div class="profile-card">
         <img src="${userData.avatar_url}" alt="Avatar de ${userData.name}">
         <div class="profile-info">
-          <h3>${userData.name || userData.login}</h3>
+          <h3>${userData.name}</h3>
           <p>${userData.bio || 'Nenhuma biografia disponível 😢.'}</p>
           <p>Seguidores: ${userData.followers}</p>
           <p>Seguindo: ${userData.following}</p>
+        </div>
+      </div>
+      <div class="profile-counter">
+        <div class="folowers">
+           <h4>Seguidores</h4>
+          <span>Seguidores: ${userData.followers}</span>
+        </div>
+        <div class="following">
+          <h4>Seguindo</h4>
+          <span>Seguindo: ${userData.following}</span>
         </div>
       </div>
     `;
   } catch (error) {
     console.error('Erro ao buscar usuário:', error);
     alert('Ocorreu um erro ao buscar o usuário.');
-  } finally {
-    btnSearch.disabled = false;
-    inputSearch.disabled = false;
-  }
+  } 
 });
 
