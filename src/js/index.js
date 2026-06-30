@@ -24,7 +24,9 @@ async function handleSearch() {
 
   try {
     const userData = await fetchGitHubUser(userName);
-    const html = renderProfile(userData);
+    const userRepos = await fetchGitHubUserRepos(userName);
+    const html = renderProfile(userData, userRepos); 
+    // profileResults
     displayResult(html);
   } catch (error) {
     console.error('Erro ao buscar usuário:', error);
