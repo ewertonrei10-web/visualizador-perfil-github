@@ -37,7 +37,21 @@ function renderProfileCard(userData, userRepos) {
  * @param {object} userData - Dados do usuário do GitHub
  * @returns {string} HTML do contador
  */
-function renderProfileCounter(userData) {
+function renderProfileCounter(userData, userRepos) {
+  const reposList = userRepos && userRepos.length > 0 ? userRepos.map(repo => `
+    <a href="${repo.html_url}" target="_blank">
+        <div class="repository-card">
+          <h3>${repo.name}</h3>
+          <div class="repository-stats">
+            <span>⭐stars: ${repo.stargazers_count}</span>
+            <span>🍴forks: ${repo.forks_count}</span>
+            <span>👀watchers: ${repo.watchers_count}</span>
+            <span>💻language: ${repo.language || 'Nenhuma linguagem especificada'}</span>
+          </div>
+        </div>
+      </a>
+    `).join('') : '<p>Nenhum repositório disponível.</p>';
+
   return `
     <div class="profile-counter">
       <div class="folowers">
@@ -49,9 +63,12 @@ function renderProfileCounter(userData) {
         <span>Seguindo: ${userData.following}</span>
       </div>
     </div>
+    
     <div class="profile-repositories">
-      <h3> Repositórios </h3>
-      ${reposList}
+      <h3>Repositórios</h3>
+      <div>
+        ${reposList}
+      </div>
     </div>
   `;
 }
@@ -62,5 +79,5 @@ function renderProfileCounter(userData) {
  * @returns {string} HTML completo do perfil
  */
 export function renderProfile(userData, userRepos) {
-  return renderProfileCard(userData) + renderProfileCounter(userData);
+  return renderProfileCard(userData, userRepos) + renderProfileCounter(userData, userRepos);
 }

@@ -1,4 +1,4 @@
-import { fetchGitHubUser } from './modules/api.js';
+import { fetchGitHubUser, fetchGitHubUserRepos } from './modules/api.js';
 import {
   elements,
   getSearchInput,

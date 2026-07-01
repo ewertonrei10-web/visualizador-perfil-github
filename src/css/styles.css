@@ -251,3 +251,81 @@ main {
   font-size: 2rem;
   font-weight: bold;
 }
+
+/* Profile Repositories */
+.profile-repositories {
+  width: 100%;
+  margin-top: var(--spacing-2xl);
+}
+
+.profile-repositories h3 {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  text-align: left;
+  color: var(--foreground);
+}
+
+.profile-repositories>div:last-child {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.repository-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.repository-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.repository-card h3 {
+  margin: 0;
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--foreground);
+  word-break: break-word;
+}
+
+.repository-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.repository-stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--font-sm);
+  color: var(--muted-foreground);
+  padding: var(--spacing-sm);
+  background: var(--muted);
+  border-radius: calc(var(--radius) - 2px);
+  text-align: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .profile-repositories h3 {
+    text-align: center;
+  }
+
+  .profile-repositories>div:last-child {
+    grid-template-columns: 1fr;
+  }
+
+  .repository-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
