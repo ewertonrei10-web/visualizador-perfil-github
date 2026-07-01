@@ -39,9 +39,7 @@ async function handleSearch() {
 
 // Event listeners
 elements.btnSearch.addEventListener('click', handleSearch);
-elements.inputSearch.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
-    handleSearch();
-  }
+elements.inputSearch.addEventListener('keypress', e => {
+  if (e.key === 'Enter') handleSearch();
 });
 
